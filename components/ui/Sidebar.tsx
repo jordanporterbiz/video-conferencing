@@ -2,7 +2,7 @@
 
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
-import { Link } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -12,7 +12,7 @@ const Sidebar = () => {
 	return (
 		<section className="sticky left-0 flex h-screen w-fit flex-col justify-between bg-dark-1 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
 			<div className=" flex flex- flex-col gap-6">
-				{sidebarLinks.map((link) => {
+				{sidebarLinks?.map((link) => {
 					const isActive =
 						pathname === link.route || pathname.startsWith(link.route);
 
@@ -21,7 +21,7 @@ const Sidebar = () => {
 							href={link.route}
 							key={link.route}
 							className={cn(
-								`flex gap-4 items-center p-4 rounded-lg justify-start`,
+								`flex gap-4 items-center p-4 rounded-lg justify-start text-white`,
 								{
 									"bg-blue-1": isActive,
 								}
